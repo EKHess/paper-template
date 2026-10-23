@@ -1,0 +1,94 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Welcome to Overleaf --- just edit your LaTeX on the left,
+% and we'll compile it for you on the right. If you open the
+% 'Share' menu, you can invite other users to edit at the same
+% time. See www.overleaf.com/learn for more info. Enjoy!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt]{article}
+
+% \usepackage{setspace}
+% \doublespacing
+
+\usepackage{amsmath}  % needed for math
+\usepackage[version=4]{mhchem}  % needed for chemical formulae
+
+\usepackage{hyperref}  % for hyperlinks
+    \hypersetup{
+        colorlinks=true,
+        citecolor=cyan,
+        urlcolor=blue}
+    \urlstyle{same}
+    \usepackage{xurl} % allows \url{} to be broken ANYWHERE (which is, like, how it SHOULD work)
+
+% Peter's specifications (12pt is set above with document class)
+\usepackage[margin=2cm]{geometry}
+\usepackage{mathptmx}   % Times Roman font for text and math
+\usepackage{setspace}   % Line spacing package
+\onehalfspacing         % Sets 1.5 line spacing
+%%%
+\geometry{margin=1in}
+\usepackage{blindtext}  % just to fill in the gaps as an example
+
+\usepackage{float}  % can use [H] in emergencies on tables/figs
+
+\usepackage{wrapfig}
+    % Use capital to allow figure to float, or lower case to specify exactly where it should go
+    % Make sure scale=X and Y\textwidth are close, and that X < Y by about 0.05
+
+\usepackage{caption}  % for figure/table captions
+    \captionsetup[figure]{name=Figure,font={small, stretch=1}} 
+    \captionsetup[table]{name=Table, labelfont=bf, font={small, stretch=1}}
+
+\usepackage[
+    backend=biber,
+    % style=authoryear,
+    % style=chem-biochem,
+    style=nature,
+    maxcitenames=1,
+    % mincitenames=1,
+    maxbibnames=1,
+    % minbibnames=2,
+    % giveninits=false
+]{biblatex}
+\addbibresource{erics-library.bib} %Import the bibliography file
+
+\usepackage{booktabs}  % for real nice tables—use to generate (copy-paste in Excel/Google Sheets data) here: https://www.tablesgenerator.com/
+\usepackage[table,xcdraw]{xcolor}
+
+\usepackage{graphics}  % can use the \resizebox{<width>}{<height>} environment to ensure tables always fit on the page. Works best if tables are just slightly too big
+
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+\usepackage{fancyhdr}
+
+%%%%%% For TikZ diagrams %%%%%%%%%%%%%%%%%
+\usepackage{tikz}
+\usetikzlibrary{scopes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setlength{\headheight}{15pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{BCEM 577}
+\fancyhead[R]{\today}
+\fancyfoot[R]{Hess \thepage}
+% \fancyfoot[L]{Created in \LaTeX}
+\renewcommand{\footrulewidth}{0.25pt}
+
+\usepackage{subfiles}  % prefers to be added just before beginning of document
+
+\usepackage{subcaption}
+%\pagestyle{empty}
+
+\begin{document}
+
+\input{sections/titlepage.tex}
+
+\subfile{sections/introduction}
+
+\printbibliography[]
+
+\end{document}
